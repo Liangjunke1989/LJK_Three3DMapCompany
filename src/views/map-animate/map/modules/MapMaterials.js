@@ -10,4 +10,4 @@ export class MapMaterials {
   destroy() {
     console.log('[MapMaterials] 系统已销毁')
   }
-}
+} 

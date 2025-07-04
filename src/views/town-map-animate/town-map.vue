@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, onBeforeUnmount } from 'vue'
+import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
 import { TownWorld } from './town-world'
 import { DataLoader } from '@/utils/DataLoader'
 
@@ -93,6 +93,27 @@ const loadNewData = async () => {
 }
 
 onMounted(async () => {
+  // 检查sessionStorage中是否有下钻传递的GeoJSON
+  const geojsonStr = sessionStorage.getItem('townMapGeoJSON')
+  if (geojsonStr) {
+    try {
+      const geojson = JSON.parse(geojsonStr)
+      // 读取adcode参数
+      const urlParams = new URLSearchParams(window.location.search)
+      const adcode = urlParams.get('adcode')
+      // 加载数据并渲染
+      loading.value = true
+      await nextTick()
+      await loadGeoJsonData(geojson, adcode)
+      loading.value = false
+      // 清理sessionStorage，避免刷新重复加载
+      sessionStorage.removeItem('townMapGeoJSON')
+      return
+    } catch (e) {
+      // 解析失败，走原有流程
+      sessionStorage.removeItem('townMapGeoJSON')
+    }
+  }
   try {
     townWorld = new TownWorld(document.getElementById('townCanvas'), {
       geoProjectionCenter: [105.2, 37.45],
@@ -110,6 +131,17 @@ onMounted(async () => {
 onBeforeUnmount(() => {
   townWorld?.destroy()
 })
+
+// 新增方法：加载GeoJSON并渲染
+async function loadGeoJsonData(geojson, adcode) {
+  if (!townWorld) return
+  try {
+    await townWorld.loadDataAndCreateMap(geojson)
+    // 可选：根据adcode高亮或定位
+  } catch (e) {
+    console.error('加载下钻GeoJSON失败', e)
+  }
+}
 </script>
 
 <style lang="scss" scoped>
