@@ -1,0 +1,174 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "文昌镇",
+        "adcode": "640502001",
+        "center": [105.189, 37.503],
+        "centroid": [105.189, 37.503],
+        "childrenNum": 15,
+        "level": "town",
+        "population": 25000,
+        "area": 125.5,
+        "gdp": 8.5
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.15, 37.52],
+              [105.25, 37.52],
+              [105.25, 37.48],
+              [105.20, 37.46],
+              [105.15, 37.48],
+              [105.15, 37.52]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "东园镇",
+        "adcode": "640502002", 
+        "center": [105.245, 37.485],
+        "centroid": [105.245, 37.485],
+        "childrenNum": 12,
+        "level": "town",
+        "population": 18000,
+        "area": 98.2,
+        "gdp": 6.8
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.22, 37.50],
+              [105.28, 37.50],
+              [105.28, 37.46],
+              [105.22, 37.46],
+              [105.22, 37.50]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "兴仁镇",
+        "adcode": "640502003",
+        "center": [105.165, 37.445],
+        "centroid": [105.165, 37.445],
+        "childrenNum": 18,
+        "level": "town",
+        "population": 32000,
+        "area": 156.8,
+        "gdp": 12.3
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.13, 37.47],
+              [105.20, 37.47],
+              [105.20, 37.42],
+              [105.13, 37.42],
+              [105.13, 37.47]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "宣和镇",
+        "adcode": "640502004",
+        "center": [105.285, 37.425],
+        "centroid": [105.285, 37.425],
+        "childrenNum": 10,
+        "level": "town",
+        "population": 15000,
+        "area": 89.6,
+        "gdp": 5.2
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.25, 37.45],
+              [105.32, 37.45],
+              [105.32, 37.40],
+              [105.25, 37.40],
+              [105.25, 37.45]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "常乐镇",
+        "adcode": "640502005",
+        "center": [105.125, 37.395],
+        "centroid": [105.125, 37.395],
+        "childrenNum": 8,
+        "level": "town",
+        "population": 12000,
+        "area": 76.3,
+        "gdp": 4.1
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.09, 37.42],
+              [105.16, 37.42],
+              [105.16, 37.37],
+              [105.09, 37.37],
+              [105.09, 37.42]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "迎水桥镇",
+        "adcode": "640502006",
+        "center": [105.205, 37.375],
+        "centroid": [105.205, 37.375],
+        "childrenNum": 14,
+        "level": "town",
+        "population": 22000,
+        "area": 112.7,
+        "gdp": 7.8
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.17, 37.40],
+              [105.24, 37.40],
+              [105.24, 37.35],
+              [105.17, 37.35],
+              [105.17, 37.40]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+} 

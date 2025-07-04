@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "示例镇A",
+        "adcode": "640000001",
+        "population": 35000,
+        "area": 180.5,
+        "gdp": 15.2,
+        "centroid": [104.8, 38.2]
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [104.7, 38.3],
+              [104.9, 38.3],
+              [104.9, 38.1],
+              [104.7, 38.1],
+              [104.7, 38.3]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "示例镇B",
+        "adcode": "640000002",
+        "population": 28000,
+        "area": 145.8,
+        "gdp": 12.8,
+        "centroid": [105.1, 38.2]
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [105.0, 38.3],
+              [105.2, 38.3],
+              [105.2, 38.1],
+              [105.0, 38.1],
+              [105.0, 38.3]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "示例镇C",
+        "adcode": "640000003",
+        "population": 42000,
+        "area": 220.3,
+        "gdp": 18.9,
+        "centroid": [104.95, 37.9]
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [104.85, 38.0],
+              [105.05, 38.0],
+              [105.05, 37.8],
+              [104.85, 37.8],
+              [104.85, 38.0]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+} 
