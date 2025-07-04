@@ -28,8 +28,8 @@ export class TownWorld extends Mini3d {
       camera: {
         fov: 75,
         near: 0.1,
-        far: 1000,
-        position: { x: 0, y: 50, z: 30 }
+        far: 10000,
+        position: { x: 0, y: 120, z: 120 }
       },
       renderer: {
         antialias: true,
@@ -54,14 +54,14 @@ export class TownWorld extends Mini3d {
       scale: config.geoProjectionScale || 50000
     }
     
-    // 场景基础设置（增加雾效范围）
-    this.scene.fog = new Fog(0x011024, 1, 1500)
-    this.scene.background = new Color(0x011024)
+    // 场景基础设置（优化雾效和背景色）
+    this.scene.fog = new Fog(0x0e1a2a, 100, 4000)
+    this.scene.background = new Color(0x0e1a2a)
     
-    // 相机设置（增加可见范围）
-    this.camera.instance.position.set(0, 80, 50)
+    // 相机设置（更高更远）
+    this.camera.instance.position.set(0, 120, 120)
     this.camera.instance.near = 0.1
-    this.camera.instance.far = 50000
+    this.camera.instance.far = 10000
     this.camera.instance.updateProjectionMatrix()
     
     // 交互管理器 - 用于处理3D对象交互
@@ -135,37 +135,23 @@ export class TownWorld extends Mini3d {
 
   // 初始化环境光照（增强亮度和范围）
   initEnvironment() {
-    // 环境光（增强亮度）
-    const ambientLight = new AmbientLight(0xffffff, 3.5)
+    // 环境光（更亮）
+    const ambientLight = new AmbientLight(0xffffff, 5.5)
     this.scene.add(ambientLight)
     
-    // 主方向光（增强亮度）
-    const directionalLight = new DirectionalLight(0xffffff, 6)
-    directionalLight.position.set(-30, 6, -8)
+    // 主方向光（更亮更白）
+    const directionalLight = new DirectionalLight(0xffffff, 10)
+    directionalLight.position.set(-60, 30, -30)
     directionalLight.castShadow = true
     directionalLight.shadow.radius = 30
     directionalLight.shadow.mapSize.width = 2048
     directionalLight.shadow.mapSize.height = 2048
     this.scene.add(directionalLight)
     
-    // 蓝色点光源（增强亮度和范围）
-    const pointLight1 = new PointLight(0x0e81fb, 240, 20000)
-    pointLight1.position.set(-3, 16, -3)
+    // 只保留一个蓝色点光源，亮度适中
+    const pointLight1 = new PointLight(0x2bc4dc, 120, 4000)
+    pointLight1.position.set(0, 60, 0)
     this.scene.add(pointLight1)
-    
-    // 深蓝色点光源（增强亮度和范围）
-    const pointLight2 = new PointLight(0x1f5f7a, 180, 300)
-    pointLight2.position.set(-4, 8, 43)
-    this.scene.add(pointLight2)
-    
-    // 新增辅助光源
-    const auxiliaryLight1 = new PointLight(0x2bc4dc, 200, 15000)
-    auxiliaryLight1.position.set(10, 20, 10)
-    this.scene.add(auxiliaryLight1)
-    
-    const auxiliaryLight2 = new PointLight(0x4da6ff, 150, 12000)
-    auxiliaryLight2.position.set(-10, 15, -10)
-    this.scene.add(auxiliaryLight2)
   }
 
   // 添加交互事件
@@ -994,10 +980,10 @@ export class TownWorld extends Mini3d {
       
       // 计算合适的相机位置
       const maxDimension = Math.max(bounds.width, bounds.height)
-      const distance = maxDimension * 1.5
+      const distance = maxDimension * 2.2
       
-      const cameraY = Math.max(distance, 30)
-      const cameraZ = distance * 0.8
+      const cameraY = Math.max(distance, 120)
+      const cameraZ = distance * 1.2
       
       // 使用动画平滑移动相机
       gsap.to(this.camera.instance.position, {
@@ -1022,7 +1008,7 @@ export class TownWorld extends Mini3d {
       
     } catch (error) {
       console.warn('自动适配相机失败，使用默认位置:', error)
-      this.camera.instance.position.set(0, 60, 40)
+      this.camera.instance.position.set(0, 120, 120)
       this.camera.controls.target.set(0, 0, 0)
       this.camera.controls.update()
     }
