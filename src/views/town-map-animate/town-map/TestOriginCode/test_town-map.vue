@@ -1,3 +1,4 @@
+<!-- 村镇地图 -->
 <template>
   <div class="town-map-container">
     <canvas id="townCanvas"></canvas>
@@ -34,7 +35,7 @@
 
 <script setup>
 import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
-import { TownWorld } from './town-world'
+import { TownWorld } from './test-town-world'
 import { DataLoader } from '@/utils/DataLoader'
 
 let townWorld = null

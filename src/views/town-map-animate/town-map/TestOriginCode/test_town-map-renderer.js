@@ -1,3 +1,8 @@
+/**
+ * 村镇地图渲染器
+ * 负责将GeoJSON数据转换为3D网格
+ * 支持自定义材质、挤出深度、边界线等
+ */
 import {
   Mesh,
   Vector3,
@@ -11,6 +16,11 @@ import {
 import { geoMercator } from "d3-geo"
 import { transfromMapGeoJSON } from "@/mini3d"
 
+/**
+ * 村镇地图渲染器
+ * 负责将GeoJSON数据转换为3D网格
+ * 支持自定义材质、挤出深度、边界线等
+ */
 export class TownMap {
   constructor(parent, config = {}) {
     this.parent = parent

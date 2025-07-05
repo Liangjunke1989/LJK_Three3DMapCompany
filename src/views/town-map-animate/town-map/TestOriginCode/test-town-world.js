@@ -1,3 +1,8 @@
+/**
+ * 村镇地图世界
+ * 负责管理村镇地图的创建、更新和交互
+ * 包含地图渲染、标签、子地图等核心功能
+ */
 import {
   Fog,
   Group,
@@ -17,10 +22,24 @@ import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRe
 import {
   Mini3d,
 } from "@/mini3d"
-import { TownMap } from "./town-map-renderer"
+import { TownMap } from "./test_town-map-renderer"
 import { InteractionManager } from "three.interactive"
 import gsap from "gsap"
 import { DataLoader } from "@/utils/DataLoader"
+import { TownChildMap } from './town-child'
+import { TownAssets } from './town-assets'
+import { ExtrudeMap } from './town-extrudeMap'
+import { initAssets } from './town-assets'
+import { createTownMap, updateTownMap } from './test_town-map-renderer'
+import { createLabels, updateLabels } from './town-label'
+import { TownChild } from './town-child'
+
+export function someUtil() {
+  // 公共工具函数
+  console.log('公共工具函数')
+  
+
+}
 
 export class TownWorld extends Mini3d {
   constructor(canvas, config = {}) {
@@ -101,8 +120,27 @@ export class TownWorld extends Mini3d {
     this.currentGeoData = null
     this.townLabels = [] // 存储村镇标签
     this.selectedTownMesh = null // 当前选中的村镇
+    this.townMap = null
+    this.labels = null
+    this.child = null
   }
 
+  async init() {
+    await initAssets()
+    this.townMap = await createTownMap(this.options)
+    this.labels = createLabels(this.townMap)
+    this.child = new TownChild(this.townMap, this.labels)
+    // ...初始化相机、渲染器、事件等
+  }
+
+  update() {
+    updateTownMap(this.townMap)
+    updateLabels(this.labels)
+    // ...动画、交互等
+  }
+
+
+  
   // 初始化CSS2D渲染器
   initCSS2DRenderer() {
     this.css2DRenderer = new CSS2DRenderer()
